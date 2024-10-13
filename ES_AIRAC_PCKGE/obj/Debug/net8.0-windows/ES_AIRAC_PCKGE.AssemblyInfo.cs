@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ES_AIRAC_PCKGE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9ed21486b460a2e73a522b9400ff5bc90a6dd82")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb45aa4d0dcd50432c62513342c001e071650089")]
 [assembly: System.Reflection.AssemblyProductAttribute("ES_AIRAC_PCKGE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ES_AIRAC_PCKGE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
