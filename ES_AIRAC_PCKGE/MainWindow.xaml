@@ -6,89 +6,501 @@
         xmlns:local="clr-namespace:ES_AIRAC_PCKGE"
         mc:Ignorable="d"
         Title="ES_AIRAC_PACKAGE_UPDATER" Height="450" Width="800"
-        Background="Gray">
-     <Window.Resources>
+        Background="#1C2836"
+        ResizeMode="NoResize"
+        WindowStyle="None">
 
-        <!--A Style that affects all TextBlocks-->
-        <Style TargetType="TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="FontSize" Value="14"/>
-        </Style>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-        <!--A Style that extends the previous TextBlock Style-->
-        <!--This is a "named style" with an x:Key of TitleText-->
-        <Style BasedOn="{StaticResource {x:Type TextBlock}}"
-           TargetType="TextBlock"
-           x:Key="TitleText">
-            <Setter Property="FontSize" Value="26"/>
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0.0" Color="#90DDDD" />
-                            <GradientStop Offset="1.0" Color="#5BFFFF" />
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <Grid
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Background="#233244">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12*" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <!--Horizontal ListBox Control Template-->
-        <Style TargetType="ListBox">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListBox">
-                        <Border CornerRadius="5" Background="{TemplateBinding ListBox.Background}">
-                            <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                                <StackPanel Orientation="Horizontal"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           IsItemsHost="True"/>
-                            </ScrollViewer>
+
+
+            <TextBlock
+                Grid.ColumnSpan="3"
+                Margin="5,10,0,0"
+                FontFamily="Myriad Pro"
+                FontSize="20"
+                FontWeight="Bold"
+                Foreground="White">
+                SCT Updater
+            </TextBlock>
+            <!--<Rectangle
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Fill="Transparent"
+                MouseLeftButtonDown="MouseDragAndDrop" />
+            <Button
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Height="40"
+                Margin="0,0,57,0"
+                VerticalAlignment="Top"
+                Background="#233244"
+                BorderThickness="0"
+                Click="HomeTabMinimize"
+                Content="_"
+                FontSize="30"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Grid.Column="2"
+                Background="#233244"
+                BorderThickness="0"
+                Click="HomeTabClose"
+                Content="X"
+                FontSize="30"
+                FontWeight="Bold"
+                Foreground="White" />-->
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <!--<Button
+                x:Name="HomeTabButton"
+                Grid.Column="0"
+                Margin="0,10,0,0"
+                Background="White"
+                Click="HomeTab_Click"
+                Content="Home"
+                FontFamily="Myriad Pro"
+                FontSize="20"
+                FontWeight="Medium"
+                Foreground="#233244">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+                </Button.Template>
+            </Button>
+            <Button
+                x:Name="CredentialsTabButton"
+                Grid.Column="1"
+                Margin="0,10,0,0"
+                Background="#233244"
+                Click="CredentialsTab_Click"
+                Content="Credentials"
+                FontFamily="Myriad Pro"
+                FontSize="20"
+                FontWeight="Medium"
+                Foreground="White">
 
-        <Style TargetType="ListBoxItem">
-            <Setter Property="Opacity" Value="0.5" />
-            <Setter Property="MaxHeight" Value="75" />
-            <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Trigger.Setters>
-                        <Setter Property="Opacity" Value="1.0" />
-                    </Trigger.Setters>
-                </Trigger>
-                <EventTrigger RoutedEvent="Mouse.MouseEnter">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation
-                  Duration="0:0:0.2"
-                  Storyboard.TargetProperty="MaxHeight"
-                  To="90"  />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="Mouse.MouseLeave">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation
-                  Duration="0:0:1"
-                  Storyboard.TargetProperty="MaxHeight"  />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button
+                x:Name="DebugTabButton"
+                Grid.Column="2"
+                Margin="0,10,0,0"
+                Background="#233244"
+                Content="Debug"
+                FontFamily="Myriad Pro"
+                FontSize="20"
+                FontWeight="Medium"
+                Foreground="White"
+                IsEnabled="false">
 
-    </Window.Resources>
-    <StackPanel Margin="10">
-        <TextBlock Style="{StaticResource TitleText}" Name="textblock1">ES_AIRAC</TextBlock>
-    </StackPanel>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>-->
+
+        </Grid>
+        
+        
+        <!-- GGGGGGGGGGGGGGGGGGGGGRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRIIIIIIIIIIIIIIIIIIIIIIIIIIIDDDDDDDDDDDDDDDDDDDDDDD -->
+        <Grid
+                   x:Name="HomeGrid"
+                   Grid.Row="2"
+                   Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Margin="2,10,0,0"
+                        FontSize="15"
+                        FontWeight="Medium"
+                        Foreground="White"
+                        Text="SCT Folder" />
+                    <TextBox
+                        x:Name="PathTextBox"
+                        Width="250"
+                        Margin="10,10,0,0"
+                        Padding="0,5,0,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="#233244"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Text="Hallo">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <!--<Button
+                        x:Name="FolderSelectButton"
+                        Margin="10,10,0,0"
+                        Background="#233244"
+                        Click="FolderSelectButton_Click"
+                        Content="Select"
+                        FontSize="15"
+                        Foreground="White">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                                    Width="120"
+                                    Height="25"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>-->
+                </StackPanel>
+                
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Margin="2,10,0,0"
+                        FontSize="15"
+                        FontWeight="Medium"
+                        Foreground="White"
+                        Text="JSON File" />
+                    <TextBox
+                        x:Name="JsonPathTextBox"
+                        Width="250"
+                        Margin="10,10,0,0"
+                        Padding="0,5,0,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="#233244"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Text="">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <!--<Button
+                        x:Name="JsonFileSelectButton"
+                        Margin="10,10,0,0"
+                        Background="#233244"
+                        Click="JsonFileSelectButton_Click"
+                        Content="Select"
+                        FontSize="15"
+                        Foreground="White">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                                    Width="120"
+                                    Height="25"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>-->
+                </StackPanel>
+
+                <StackPanel Margin="0,10,0,0" Background="#1C2836">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox
+                            x:Name="NameCidCheckBox"
+                            Width="200"
+                            Margin="10,0,0,0"
+                            Content="Name/CID"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Foreground="White" />
+                        <CheckBox
+                            x:Name="PasswordCheckBox"
+                            Margin="0,0,0,0"
+                            Content="Password"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Foreground="White" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox
+                            x:Name="CpdlcCheckBox"
+                            Width="200"
+                            Margin="10,10,0,0"
+                            Content="CPDLC"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Foreground="White" />
+                        <CheckBox
+                            x:Name="HdgDrawToolCheckBox"
+                            Margin="0,10,0,0"
+                            Content="HDG Drawtool (not working)"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Foreground="White" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox
+                            x:Name="extrajsonCheckBox"
+                            Width="200"
+                            Margin="10,10,0,0"
+                            Content="JSON Insert"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Foreground="White" />
+                        <CheckBox
+                            Margin="0,10,0,0"
+                            Content="extra"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Foreground="White" />
+                    </StackPanel>
+
+                    <!--<Button
+                        x:Name="ProcessStartButton"
+                        Margin="0,30,50,0"
+                        Background="#233244"
+                        Content="Start"
+                        FontSize="14"
+                        Foreground="White"
+                        Click="ProcessStart">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                                    Width="120"
+                                    Height="25"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>-->
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+                <TextBox
+                    x:Name="DebugBox"
+                    Width="200"
+                    Height="200"
+                    Margin="0,10,0,0"
+                    Background="#233244"
+                    BorderThickness="0"
+                    Foreground="White">
+                    DebugWindow
+                </TextBox>
+            </StackPanel>
+
+
+        </Grid>
+        <!-- GGGGGGGGGGGRRRRRRRRRRRRRRRRRRRRRRIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIDDDDDDDDDDDDDDDDDDDDDD -->
+        <Grid
+            x:Name="CredentialsGrid"
+            Grid.Row="2"
+            Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel>
+                <StackPanel Margin="0,15,0,0" Background="#1C2836">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Margin="10,0,0,0"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Text="Name"
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Foreground="White" />
+                        <TextBox
+                            x:Name="NameTextBox"
+                            Width="250"
+                            Padding="0,5,0,5"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="#233244"
+                            BorderThickness="0"
+                            Foreground="White">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10" />
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,15,0,0">
+                        <TextBlock
+                            Width="100"
+                            Margin="10,0,0,0"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Text="CID"
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Foreground="White" />
+                        <TextBox
+                            x:Name="CIDTextBox"
+                            Width="250"
+                            Padding="0,5,0,5"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="#233244"
+                            BorderThickness="0"
+                            Foreground="White">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10" />
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,15,0,0">
+                        <TextBlock
+                            Width="100"
+                            Margin="10,0,0,0"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Text="Password"
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Foreground="White" />
+                        <TextBox
+                            x:Name="PasswordTextBox"
+                            Width="250"
+                            Padding="0,5,0,5"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="#233244"
+                            BorderThickness="0"
+                            Foreground="White">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10" />
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,15,0,0">
+                        <TextBlock
+                            Width="100"
+                            Margin="10,0,0,0"
+                            FontFamily="Myriad Pro"
+                            FontSize="15"
+                            Text="HoppieCode"
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Foreground="White" />
+                        <TextBox
+                            x:Name="CPDLCTextBox"
+                            Width="250"
+                            Padding="0,5,0,5"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="#233244"
+                            BorderThickness="0"
+                            Foreground="White">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10" />
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+
+                    <!--<Button
+                        Margin="0,30,50,0"
+                        Background="#233244"
+                        Content="Save"
+                        FontSize="14"
+                        Foreground="White"
+                        Click="SaveCredsButton_Click">
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                                    Width="120"
+                                    Height="25"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>-->
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+                <TextBox
+                    x:Name="DEbugHomeTextBlock"
+                    Width="200"
+                    Height="200"
+                    Margin="0,10,0,0"
+                    Background="#233244"
+                    BorderThickness="0"
+                    Foreground="White">
+                    DebugWindow
+                </TextBox>
+            </StackPanel>
+
+        </Grid>
+
+
+    </Grid>
 </Window>

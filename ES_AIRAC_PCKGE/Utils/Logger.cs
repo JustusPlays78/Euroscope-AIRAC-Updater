@@ -15,6 +15,10 @@ public class Logger
         
         LogVersion = Config.GetAppVersion();
         String Logfile = GetLogFileStartString(LogVersion);
+        if (!Directory.Exists(System.IO.Directory.GetCurrentDirectory() + "\\debuging"))
+        {
+            Directory.CreateDirectory(System.IO.Directory.GetCurrentDirectory() + "\\debuging");
+        }
         LogPath = System.IO.Directory.GetCurrentDirectory()+ "\\debuging\\log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".txt";
         CreateLogFile(LogPath, Logfile);
     }

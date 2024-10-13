@@ -10,22 +10,26 @@ namespace ES_AIRAC_PCKGE.config;
 public class Json
 {
 
-    public static Config GetConfig()
+    private static String ConfigPath = System.IO.Directory.GetCurrentDirectory() + "\\config.json";
+    
+
+    public static Config GetConfigJson()
     {
-        Config c = new Config();
-        
-        return c;
+        Config configs = JsonSerializer.Deserialize<Config>(File.ReadAllText(ConfigPath));
+        return configs;
+    }
+
+    public static void SaveConfigJson(Config configs)
+    {
+        File.WriteAllText(ConfigPath, JsonSerializer.Serialize(configs));
     }
 
     public static Boolean doesConfigJsonExist()
     {
-        try
+        if (File.Exists(ConfigPath))
         {
-            string json = File.ReadAllText("config.json");
             return true;
-        }
-        catch (Exception e)
-        {
+        } else {
             return false;
         }
     }
@@ -34,9 +38,7 @@ public class Json
     public static void CreateStandardConfigJson(Config c)
     {
         utillogger.LogMessage(SeverityLevel.Info, "Creating new ConfigJson");
-        string json = JsonSerializer.Serialize(c);
-        utillogger.LogMessage(SeverityLevel.Info, json);
-        //File.WriteAllText(c.ConfigPath, json);
+        File.WriteAllText(ConfigPath, JsonSerializer.Serialize(c));
     }
     
 }

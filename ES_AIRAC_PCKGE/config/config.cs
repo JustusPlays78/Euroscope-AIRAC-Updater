@@ -1,44 +1,62 @@
 ﻿using System.IO;
+using ES_AIRAC_PCKGE.Utils;
+using utillogger = ES_AIRAC_PCKGE.Utils.Logger;
 
 namespace ES_AIRAC_PCKGE.config;
 
 public class Config
 {
     public static string AppVersion = "1.0.0";
-    public string AppPath { get; set; }
-    private static String ConfigPath { get; set; }
-    public List<string> FeaturesList { get; set; }
+    public string VatsimUsername { get; set; }
+    public string VatsimPassword { get; set; }
+    public string[][][] FeatureArray { get; set; }
+    public List<Boolean>? FeatureListBoolean { get; set; }
     
-    public Config()
+    private static Config cfg = new();
+    
+
+
+    public static void onConfigStart()
     {
+        utillogger.LogMessage(SeverityLevel.Info,"Starting Configuration");
+        if (!Json.doesConfigJsonExist())
+        {
+            utillogger.LogMessage(SeverityLevel.Error,"Configuration file doesn't exist");
+            Json.CreateStandardConfigJson(GenereateStandardConfig());
+            utillogger.LogMessage(SeverityLevel.Info,"Configuration created");
+        }
+        utillogger.LogMessage(SeverityLevel.Info,"Reading configuration file");
+        cfg = Json.GetConfigJson();
     }
 
+    private static Config GenereateStandardConfig()
+    {
+        Config config = new Config
+        {
+            VatsimUsername = "",
+            VatsimPassword = "",
+            FeatureArray = null,
+            FeatureListBoolean = null,
+        };
+        return config;
+    }
+    
     private Config GetConfig()
     {
         if (!Json.doesConfigJsonExist())
         {
-            //Falls file nicht existiert
+            utillogger.LogMessage(SeverityLevel.Error,"Configuration file doesn't exist");
+            Json.CreateStandardConfigJson(GenereateStandardConfig());
+            utillogger.LogMessage(SeverityLevel.Info,"Configuration created");
         }
-        
-        return Json.GetConfig();
+        utillogger.LogMessage(SeverityLevel.Info,"Reading configuration file");
+        return Json.GetConfigJson();
     }
-
-    public static Config GetStandartConfig()
-    {
-        Config c = new Config();
-        c.AppPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-        //c.ConfigPath = System.IO.Directory.GetCurrentDirectory() + "\\config.json";
-        return c;
-    }
+    
 
     public static string GetAppVersion()
     {
         return AppVersion;
-    }
-
-    public static string GetConfigPath()
-    {
-        return ConfigPath;
     }
     
 }
