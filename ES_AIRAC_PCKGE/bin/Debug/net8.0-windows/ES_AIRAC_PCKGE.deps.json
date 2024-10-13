@@ -8,10 +8,32 @@
     ".NETCoreApp,Version=v8.0": {
       "ES_AIRAC_PCKGE/1.0.0": {
         "dependencies": {
+          "FolderBrowserForWPF": "1.2.0",
+          "FolderPath": "1.1.1",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "ES_AIRAC_PCKGE.dll": {}
+        }
+      },
+      "FolderBrowserForWPF/1.2.0": {
+        "runtime": {
+          "lib/net5.0-windows7.0/FolderBrowserForWPF.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "FolderPath/1.1.1": {
+        "runtime": {
+          "lib/net45/FolderPath.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/net45/FolderPath.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Newtonsoft.Json/13.0.3": {
@@ -29,6 +51,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FolderBrowserForWPF/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CSVh14iL4unRKBSOjWakdch3dJDS6r/sboQ7yoKEbfHEldVcPa8lXqkTtLb2eicFVVS3bGJIBXC3mPKe8CYd/g==",
+      "path": "folderbrowserforwpf/1.2.0",
+      "hashPath": "folderbrowserforwpf.1.2.0.nupkg.sha512"
+    },
+    "FolderPath/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R1b2Nb8qaaV+RPOZgDpMesV7f0LKDYVBNmjnAJkpWDcNNmYctojo1srVlY4eTAKTEbG1MAvv9UhS562zzmUL4g==",
+      "path": "folderpath/1.1.1",
+      "hashPath": "folderpath.1.1.1.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",

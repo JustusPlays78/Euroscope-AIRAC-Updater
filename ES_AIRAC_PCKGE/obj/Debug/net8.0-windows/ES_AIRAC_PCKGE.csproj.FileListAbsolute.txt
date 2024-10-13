@@ -45,3 +45,6 @@ Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC.28FD68A8.Up2Date
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE.genruntimeconfig.cache
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ref\ES_AIRAC_PCKGE.dll
+Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\FolderBrowserForWPF.dll
+Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\FolderPath.Abstractions.dll
+Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\FolderPath.dll
