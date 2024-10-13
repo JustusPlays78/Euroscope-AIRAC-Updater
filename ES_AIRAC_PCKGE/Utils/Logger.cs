@@ -7,32 +7,57 @@ namespace ES_AIRAC_PCKGE.Utils;
 
 public class Logger
 {
-    public static void CreateLogFile(Config config)
+    public static String LogPath {get; private set;}
+    private static String LogVersion {get; set;}
+    
+    public static void LoggerStart()
     {
-        string path = config.LogPath + "\\log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".txt";
-        string LogTopStart = GetLogFileString(config.Version);
-        File.WriteAllText(path, LogTopStart);
-    }
-
-
-    private static String GetLogFileString(String version)
-    {
-        String Logstring = "";
-        List<String> LogFileList = new List<String>();
         
-        LogFileList.Add(DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss") + " || Log ES_AIRAC_PCKGE log.txt" + "\n");
-        LogFileList.Add("Author: Julscha - Version" + version + "\n");
-
-        for (int i = 0; i < LogFileList.Count; i++)
-        {
-            if (i.Equals(0))
-            {
-                Logstring = LogFileList[i];
-                continue;
-            } 
-            Logstring = Logstring + LogFileList[i];
-        }
-
-        return Logstring;
+        LogVersion = Config.GetAppVersion();
+        String Logfile = GetLogFileStartString(LogVersion);
+        LogPath = System.IO.Directory.GetCurrentDirectory()+ "\\debuging\\log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".txt";
+        CreateLogFile(LogPath, Logfile);
     }
+    
+    public static void LogMessage(SeverityLevel severity, string message)
+    {
+        message = GetSeverityLevelString(severity) + (message);
+        String reader = File.ReadAllText(LogPath);
+        message = reader + Environment.NewLine + message;
+        File.AppendAllText(LogPath, message);
+    }
+
+    private static string GetSeverityLevelString(SeverityLevel severity)
+    {
+        string dateTime = DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss || ");
+        switch (severity)
+        {
+            case SeverityLevel.Info: 
+                return dateTime + "INFO: ";
+            case SeverityLevel.Success:
+                return dateTime + "SUCCESS: ";
+            case SeverityLevel.Warning:
+                return dateTime + "WARN: ";
+            case SeverityLevel.Error:
+                return dateTime + "ERROR: ";
+        }
+        return "";
+    }
+
+    public static void CreateLogFile(String path, String logfile = "")
+    {
+        File.WriteAllText(LogPath,logfile);
+    }
+
+    private static String GetLogFileStartString(string logversion)
+    {
+        
+        String first = DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss") + " || Log ES_AIRAC_PCKGE log.txt";
+        String second = DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss") + " || Author: Julscha - Version " + logversion;
+        
+        
+        return first + Environment.NewLine + second;
+    }
+
+
 }

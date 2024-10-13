@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ES_AIRAC_PCKGE"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="ES_AIRAC_PACKAGE_UPDATER" Height="450" Width="800"
         Background="Gray">
      <Window.Resources>
 

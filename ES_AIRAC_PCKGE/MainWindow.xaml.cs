@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using ES_AIRAC_PCKGE.Utils;
+using utillogger = ES_AIRAC_PCKGE.Utils.Logger;
 
 
 namespace ES_AIRAC_PCKGE;
@@ -10,8 +12,10 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        Utils.Logger.CreateLogFile(config.Config.GetStandartConfig());
-
+        utillogger.LoggerStart();
+        utillogger.LogMessage(SeverityLevel.Info, "Application started");
+        
+        
         InitializeComponent();
         
 
