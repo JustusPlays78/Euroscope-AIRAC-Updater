@@ -1,7 +1,9 @@
 ﻿using System.IO;
 using System.Net;
 using System.Text.Json;
+using System.Windows.Documents;
 using ES_AIRAC_PCKGE.Utils;
+using utillogger = ES_AIRAC_PCKGE.Utils.Logger;
 
 namespace ES_AIRAC_PCKGE.config;
 
@@ -15,35 +17,26 @@ public class Json
         return c;
     }
 
-    public static void UpdateConfigJson()
+    public static Boolean doesConfigJsonExist()
     {
-        
+        try
+        {
+            string json = File.ReadAllText("config.json");
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
+    
 
-    public static void SaveConfigJson()
+    public static void CreateStandardConfigJson(Config c)
     {
-        
-    }
-
-    public static void LoadConfigJson()
-    {
-
-    }
-
-    public static void DeleteConfigJson()
-    {
-        
-    }
-
-    public static Task CreateStandardConfigJson(Config c)
-    {
-        Utils.Utils.Consolelogger(SeverityLevel.Info, "Creating new ConfigJson");
+        utillogger.LogMessage(SeverityLevel.Info, "Creating new ConfigJson");
         string json = JsonSerializer.Serialize(c);
-        Utils.Utils.Consolelogger(SeverityLevel.Info, json);
-        File.WriteAllText(c.ConfigPath, json);
-        
-        
-        return Task.CompletedTask;
+        utillogger.LogMessage(SeverityLevel.Info, json);
+        //File.WriteAllText(c.ConfigPath, json);
     }
     
 }
