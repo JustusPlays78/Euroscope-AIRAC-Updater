@@ -6,7 +6,7 @@ namespace ES_AIRAC_PCKGE.Services;
 public class LoggerService
 {
     
-    public string LogPath {get; private set;}
+    public static string LogPath {get; private set;}
     private string LogVersion {get; set;}
     
     public async void OnStart(ConfigService configService)
