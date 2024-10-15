@@ -47,3 +47,4 @@ ES_AIRAC_PCKGE/obj/Debug/net8.0-windows/ES_AIRAC_PCKGE.pdb
 /ES_AIRAC_PCKGE/bin
 ES_AIRAC_PCKGE/obj/Debug/net8.0-windows/App.g.cs
 *.dll
+/ES_AIRAC_PCKGE/obj/Debug
