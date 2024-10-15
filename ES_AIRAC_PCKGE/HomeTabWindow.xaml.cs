@@ -41,12 +41,6 @@ public partial class HomeTabWindow : Window
         EnableDisableTab(CredentialsTabGrid,CredentialsTabButton, false);
         EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
         utillogger.LogMessage(SeverityLevel.Info, "HomeTab open");
-        
-        
-        DebugBox.Text = "Debug. WIP";
-        DebugBox.Visibility = Visibility.Visible;
-        
-        
     }
         private void CloseApplication(object sender, RoutedEventArgs e)
         {
