@@ -6,7 +6,7 @@ namespace ES_AIRAC_PCKGE.Services;
 
 public class JsonService
 {
-    private LoggerService _loggerService = new LoggerService();
+    private readonly LoggerService _loggerService = new();
 
     private string ConfigPath = System.IO.Directory.GetCurrentDirectory() + "\\config.json";
     
@@ -33,10 +33,11 @@ public class JsonService
     }
     
 
-    public void CreateStandardConfigJson(ConfigService c)
+    public Task CreateStandardConfigJson(ConfigService c)
     {
         _loggerService.LogMessage(SeverityLevelType.Info, "Creating new ConfigJson");
         File.WriteAllText(ConfigPath, JsonSerializer.Serialize(c));
+        return Task.CompletedTask;
     }
     
 }

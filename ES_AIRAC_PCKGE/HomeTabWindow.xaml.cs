@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using ES_AIRAC_PCKGE.EnumsList;
 using ES_AIRAC_PCKGE.Services;
+using ES_AIRAC_PCKGE.Services.Backend;
 
 namespace ES_AIRAC_PCKGE;
 
@@ -12,33 +13,26 @@ namespace ES_AIRAC_PCKGE;
 public partial class HomeTabWindow : Window
 {
     
-    LoggerService _loggerService = new LoggerService();
-    ConfigService _configService = new ConfigService();
+    private LoggerService _loggerService = new();
+    private ConfigService _configService = new();
+    private BackendService _backendService = new();
     
-    private bool isEverythingAlreadyStarted = false;
-    private bool isHomeTabOpen = true;
-    private bool isCredentailsTabOpen = false;
-    private bool isFeaturesTabOpen = false;
+    
     private Brush bluecolor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#233244"));
     private Brush whitecolor = Brushes.White;
     
     public HomeTabWindow()
     {
-            //LoggerStart
-            _loggerService.OnStart(_configService);
-            _loggerService.LogMessage(SeverityLevelType.Info, "LoggerService started");
         
+        _configService.OnStart();
+        _loggerService.OnStart(_configService);
+        _loggerService.LogMessage(SeverityLevelType.Info, "LoggerService started");
+        _loggerService.LogMessage(SeverityLevelType.Info, "Config setup completed");
         
-            //Configgetter
-            _loggerService.LogMessage(SeverityLevelType.Info, "Config setup started");
-            _configService.OnStart();
-            _loggerService.LogMessage(SeverityLevelType.Info, "Config setup completed");
-            
-            
-            
+        _backendService.OnStart(_configService);
+        
         
         InitializeComponent();
-        isHomeTabOpen = true;
         EnableDisableTab(HomeTabGrid,HomeTabButton, true);
         EnableDisableTab(CredentialsTabGrid,CredentialsTabButton, false);
         EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
@@ -63,27 +57,18 @@ public partial class HomeTabWindow : Window
                 EnableDisableTab(HomeTabGrid,HomeTabButton, true);
                 EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, false);
                 EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
-                isHomeTabOpen = true;
-                isCredentailsTabOpen = false;
-                isFeaturesTabOpen = false;
             } 
             else if (sender.Equals(CredentialsTabButton))
             {
                 EnableDisableTab(HomeTabGrid,HomeTabButton, false);
                 EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, true);
                 EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
-                isHomeTabOpen = false;
-                isCredentailsTabOpen = true;
-                isFeaturesTabOpen = false;
             }
             else if (sender.Equals(FeaturesTabButton))
             {
                 EnableDisableTab(HomeTabGrid,HomeTabButton, false);
                 EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, false);
                 EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, true);
-                isHomeTabOpen = false;
-                isCredentailsTabOpen = false;
-                isFeaturesTabOpen = true;
             }
         }
         private void EnableDisableTab(Grid grid, Button button, bool enable)

@@ -4,8 +4,8 @@ namespace ES_AIRAC_PCKGE.Services;
 
 public class ConfigService
 {
-    LoggerService _loggerService = new LoggerService();
-    JsonService _jsonService = new JsonService();
+    private LoggerService _loggerService = new();
+    private JsonService _jsonService = new();
     
     
     private readonly string AppVersion = "1.0.0";
@@ -14,16 +14,12 @@ public class ConfigService
     private string[][][]? FeatureArray { get; set; }
     private List<bool>? FeatureListBoolean { get; set; }
 
-    public void OnStart()
+    public async void OnStart()
     {
-        _loggerService.LogMessage(SeverityLevelType.Info,"Starting Configuration");
         if (!_jsonService.doesConfigJsonExist())
         {
-            _loggerService.LogMessage(SeverityLevelType.Error,"Configuration file doesn't exist");
-            _jsonService.CreateStandardConfigJson(GenereateStandardConfig());
-            _loggerService.LogMessage(SeverityLevelType.Info,"Configuration created");
+            await _jsonService.CreateStandardConfigJson(GenereateStandardConfig());
         }
-        _loggerService.LogMessage(SeverityLevelType.Info,"Reading configuration file");
     }
 
     private ConfigService GenereateStandardConfig()
