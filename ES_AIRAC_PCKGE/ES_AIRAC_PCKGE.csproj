@@ -9,12 +9,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="FolderBrowserForWPF" Version="1.2.0" />
-      <PackageReference Include="FolderPath" Version="1.1.1" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Update="TestWindow1.cs">
         <DependentUpon>testwindow1.xaml</DependentUpon>
       </Compile>

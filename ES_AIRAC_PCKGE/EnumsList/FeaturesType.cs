@@ -1,6 +1,6 @@
-﻿namespace ES_AIRAC_PCKGE.config;
+﻿namespace ES_AIRAC_PCKGE.EnumsList;
 
-public enum Features
+public enum FeaturesType
 {
     Credentials,
     SymbologyFontsize,
