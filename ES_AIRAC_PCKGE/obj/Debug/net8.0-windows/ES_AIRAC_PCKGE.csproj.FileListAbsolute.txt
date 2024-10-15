@@ -22,7 +22,6 @@ Z:\PrivatGit\ES_AIRAC_PCKGE\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\Newtonsoft.J
 Z:\PrivatGit\ES_AIRAC_PCKGE\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE.csproj.AssemblyReference.cache
 Z:\PrivatGit\ES_AIRAC_PCKGE\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC.28FD68A8.Up2Date
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE.csproj.AssemblyReference.cache
-Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\MainWindow.g.cs
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\App.g.cs
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE_MarkupCompile.cache
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE_MarkupCompile.lref
@@ -35,7 +34,6 @@ Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\ES
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\ES_AIRAC_PCKGE.dll
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\ES_AIRAC_PCKGE.pdb
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\MainWindow.baml
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE.g.resources
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE.GeneratedMSBuildEditorConfig.editorconfig
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\ES_AIRAC_PCKGE.AssemblyInfoInputs.cache
@@ -48,3 +46,5 @@ Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\re
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\FolderBrowserForWPF.dll
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\FolderPath.Abstractions.dll
 Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\bin\Debug\net8.0-windows\FolderPath.dll
+Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\HomeTabWindow.g.cs
+Z:\PrivatGit\ES_AIRAC_PACKAGE_UPDATER\ES_AIRAC_PCKGE\obj\Debug\net8.0-windows\HomeTabWindow.baml

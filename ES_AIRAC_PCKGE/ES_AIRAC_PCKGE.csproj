@@ -14,4 +14,10 @@
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="TestWindow1.cs">
+        <DependentUpon>testwindow1.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

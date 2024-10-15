@@ -26,8 +26,7 @@ public class Logger
     public static void LogMessage(SeverityLevel severity, string message)
     {
         message = GetSeverityLevelString(severity) + (message);
-        String reader = File.ReadAllText(LogPath);
-        message = reader + Environment.NewLine + message;
+        message = Environment.NewLine + message;
         File.AppendAllText(LogPath, message);
     }
 
