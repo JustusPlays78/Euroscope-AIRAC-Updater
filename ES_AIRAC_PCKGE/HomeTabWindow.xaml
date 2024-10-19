@@ -192,102 +192,36 @@
         <Grid
             x:Name="HomeTabGrid"
             Grid.Row="3"
-            Visibility="Visible">
+            Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-
-                <StackPanel Margin="0,0,0,0" Background="#1C2838">
-                    <StackPanel Orientation="Horizontal" >
-                        <StackPanel Orientation="Vertical" >
-                            <CheckBox
-                                Width="200"
-                                Margin="5,10,0,0"
-                                Content="Name/CID"
-                                FontFamily="Myriad Pro"
-                                FontSize="15"
-                                Foreground="White"
-                                HorizontalAlignment="Left"/>
-                            <CheckBox
-                                Margin="5,10,0,0"
-                                Content="Password"
-                                FontFamily="Myriad Pro"
-                                FontSize="15"
-                                Foreground="White"
-                                HorizontalAlignment="Left"/>
-                            <CheckBox
-                                Width="200"
-                                Margin="5,10,0,0"
-                                Content="CPDLC"
-                                FontFamily="Myriad Pro"
-                                FontSize="15"
-                                Foreground="White"
-                                HorizontalAlignment="Left"/>
-                            <CheckBox
-                                Margin="5,10,0,0"
-                                Content="HDG Drawtool (not working)"
-                                FontFamily="Myriad Pro"
-                                FontSize="15"
-                                Foreground="White"
-                                HorizontalAlignment="Left"/>
-                            <CheckBox
-                                Width="200"
-                                Margin="5,10,0,0"
-                                Content="JSON Insert"
-                                FontFamily="Myriad Pro"
-                                FontSize="15"
-                                Foreground="White"
-                                HorizontalAlignment="Left"/>
-                            <CheckBox
-                                Margin="5,10,0,0"
-                                Content="extra"
-                                FontFamily="Myriad Pro"
-                                FontSize="15"
-                                Foreground="White"
-                                HorizontalAlignment="Left"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Vertical" >
-
-                            <Button
-                                Margin="0,30,50,0"
-                                Background="#233244"
-                                Content="Start"
-                                FontSize="14"
-                                Foreground="White">
-
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border
-                                            Width="120"
-                                            Height="25"
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="10">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                        </StackPanel>
-                    </StackPanel>
+        <StackPanel Margin="0,0,0,0" Background="#1C2838">
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Vertical" >
+                    <CheckBox Width="200" Margin="5,10,0,0" Content="Name/CID" FontFamily="Myriad Pro" FontSize="15" Foreground="White" HorizontalAlignment="Left"/>
+                    <CheckBox Margin="5,10,0,0" Content="Password" FontFamily="Myriad Pro" FontSize="15" Foreground="White" HorizontalAlignment="Left"/>
+                    <CheckBox Width="200" Margin="5,10,0,0" Content="CPDLC" FontFamily="Myriad Pro" FontSize="15" Foreground="White" HorizontalAlignment="Left"/>
+                    <CheckBox Margin="5,10,0,0" Content="HDG Drawtool (not working)" FontFamily="Myriad Pro" FontSize="15" Foreground="White" HorizontalAlignment="Left"/>
+                    <CheckBox Width="200" Margin="5,10,0,0" Content="JSON Insert" FontFamily="Myriad Pro" FontSize="15" Foreground="White" HorizontalAlignment="Left"/>
+                    <CheckBox Margin="5,10,0,0" Content="extra" FontFamily="Myriad Pro" FontSize="15" Foreground="White" HorizontalAlignment="Left"/>
                 </StackPanel>
-            <StackPanel Grid.Column="1">
-                <ProgressBar HorizontalAlignment="Center" Margin="20" Value="70" Width="120" Height="20"
-                             >
-                    <!--<ProgressBar.Template>
-                        <ControlTemplate TargetType="ProgressBar">
-                            <Border
-                                Width="100"
-                                Height="15"
-                                Background="{TemplateBinding Background}"
-                                CornerRadius="10">
-                            </Border>
-                        </ControlTemplate>
-                    </ProgressBar.Template>-->
-                </ProgressBar>
-                <!--<PasswordBox HorizontalAlignment="Center" Margin="8" Password="Password" />-->
+                <StackPanel Orientation="Vertical" >
+                    <Button Margin="0,30,50,0" Background="#233244" Content="Start" FontSize="14" Foreground="White">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="120" Height="25" Background="{TemplateBinding Background}" CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
             </StackPanel>
-        </Grid>
+        </StackPanel>
+        <ProgressBar HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Value="70" Width="120" Height="20" />
+    </Grid>
         <!-- Credentials Grid-->
         <Grid
             x:Name="CredentialsTabGrid"
@@ -467,263 +401,96 @@
         <Grid
             x:Name="FeaturesTabGrid"
             Grid.Row="3"
-            Visibility="Hidden">
-            
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="250"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-            <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="30,15,0,0" 
-                        Background="#1C2836">
-                    <ListView Margin="0" Height="250" HorizontalAlignment="Left"
-                              Background="#233244"
-                              Foreground="White"
-                              BorderThickness="0">
-                        
-                        <ListView.View>
-                            <GridView AllowsColumnReorder="true">
-                                <GridViewColumn Header="ID" Width="100"/>
-                                <GridViewColumn Header="Name" Width="150"/>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="adas"/>
-                        <ListViewItem Content="Second Item" />
-                        <ListViewItem Content="Third Item" />
-                        <ListViewItem Content="Fourth Item" />
-                        <ListViewItem Content="Fifth Item" />
-                        <ListViewItem Content="Sixth Item" />
-                        <ListViewItem Content="Seventh Item" />
-                        <ListViewItem Content="Eighth Item" />
-                    </ListView>
+            Visibility="Visible">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="30,15,0,0" Background="#1C2836">
+            <ListView Margin="0" Height="250" HorizontalAlignment="Left" Background="#233244" Foreground="White" BorderThickness="0" ItemsSource="{Binding Features}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true">
+                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Actions" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Edit" Margin="0,0,5,0"/>
+                                        <Button Content="Delete"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3">
+            <StackPanel Margin="0,15,0,0" Background="#1C2836">
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Width="100" Margin="10,0,0,0" FontFamily="Myriad Pro" FontSize="15" Text="Name" VerticalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                    <TextBox Width="250" Padding="0,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#233244" BorderThickness="0" Foreground="White" Text="{Binding SelectedFeature.Name, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
                 </StackPanel>
-            <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-                <TextBox
-                    Width="120"
-                    Padding="0,5,0,5"
-                    Margin="30,10,0,5"
-                    VerticalAlignment="Center"
-                    Background="#233244"
-                    BorderThickness="0"
-                    Foreground="White"
-                    Text="Feature-ID">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10" />
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-                <Button
-                    Margin="10,10,0,5"
-                    Background="#233244"
-                    Content="Edit"
-                    FontSize="14"
-                    Foreground="White"
-                    VerticalAlignment="Center"
-                    >
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                            Width="120"
-                            Height="25"
-                            Background="{TemplateBinding Background}"
-                            CornerRadius="10">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                    </Button.Template>
-                </Button>
-            </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3">
-                <StackPanel>
-                <StackPanel Margin="0,15,0,0" Background="#1C2836">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock
-                            Width="100"
-                            Margin="10,0,0,0"
-                            FontFamily="Myriad Pro"
-                            FontSize="15"
-                            Text="ID"
-                            VerticalAlignment="Center"
-                            FontWeight="Bold"
-                            Foreground="White" />
-                        <TextBox
-                            Width="250"
-                            Padding="0,5,0,5"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="#233244"
-                            BorderThickness="0"
-                            Foreground="White">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10" />
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                    </StackPanel>
 
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,15,0,0">
-                        <TextBlock
-                            Width="100"
-                            Margin="10,0,0,0"
-                            FontFamily="Myriad Pro"
-                            FontSize="15"
-                            Text="Name"
-                            VerticalAlignment="Center"
-                            FontWeight="Bold"
-                            Foreground="White" />
-                        <TextBox
-                            Width="250"
-                            Padding="0,5,0,5"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="#233244"
-                            BorderThickness="0"
-                            Foreground="White">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10" />
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                    </StackPanel>
-
-
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,15,0,0">
-                        <TextBlock
-                            Width="100"
-                            Margin="10,0,0,0"
-                            FontFamily="Myriad Pro"
-                            FontSize="15"
-                            Text="Rel. Pfad"
-                            VerticalAlignment="Center"
-                            FontWeight="Bold"
-                            Foreground="White" />
-                        <TextBox
-                            Width="250"
-                            Padding="0,5,0,5"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="#233244"
-                            BorderThickness="0"
-                            Foreground="White">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10" />
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                    </StackPanel>
-
-
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,15,0,0">
-                        <TextBlock
-                            Width="100"
-                            Margin="10,0,0,0"
-                            FontFamily="Myriad Pro"
-                            FontSize="15"
-                            Text="Alt"
-                            VerticalAlignment="Center"
-                            FontWeight="Bold"
-                            Foreground="White" />
-                        <TextBox
-                            Width="250"
-                            Padding="0,5,0,5"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="#233244"
-                            BorderThickness="0"
-                            Foreground="White">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10" />
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"
-                                Margin="0,15,0,0">
-                        <TextBlock
-                            Width="100"
-                            Margin="10,0,0,0"
-                            FontFamily="Myriad Pro"
-                            FontSize="15"
-                            Text="Neu"
-                            VerticalAlignment="Center"
-                            FontWeight="Bold"
-                            Foreground="White" />
-                        <TextBox
-                            Width="250"
-                            Padding="0,5,0,5"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="#233244"
-                            BorderThickness="0"
-                            Foreground="White">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10" />
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                    </StackPanel>
-
-                    <Button
-                        Margin="0,25,50,0"
-                        Background="#233244"
-                        Content="Save"
-                        FontSize="14"
-                        Foreground="White">
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border
-                                    Width="120"
-                                    Height="25"
-                                    Background="{TemplateBinding Background}"
-                                    CornerRadius="10">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Width="100" Margin="10,0,0,0" FontFamily="Myriad Pro" FontSize="15" Text="Rel. Pfad" VerticalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                    <TextBox Width="250" Padding="0,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#233244" BorderThickness="0" Foreground="White" Text="{Binding SelectedFeature.RelPath, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
                 </StackPanel>
-            </StackPanel>
-            </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="4">
-                <Button
-                    Padding="0,5,0,5"
-                    Margin="0,20,0,5"
-                    Background="#233244"
-                    Content="Save FeaturesType"
-                    FontSize="15"
-                    Foreground="White"
-                    VerticalAlignment="Center"
-                >
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Width="100" Margin="10,0,0,0" FontFamily="Myriad Pro" FontSize="15" Text="Alt" VerticalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                    <TextBox Width="250" Padding="0,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#233244" BorderThickness="0" Foreground="White" Text="{Binding SelectedFeature.Alt, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <TextBlock Width="100" Margin="10,0,0,0" FontFamily="Myriad Pro" FontSize="15" Text="Neu" VerticalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                    <TextBox Width="250" Padding="0,5,0,5" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#233244" BorderThickness="0" Foreground="White" Text="{Binding SelectedFeature.Neu, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+
+                <Button Margin="0,25,50,0" Background="#233244" Content="Save" FontSize="14" Foreground="White">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border
-                                Width="140"
-                                Height="35"
-                                Background="{TemplateBinding Background}"
-                                CornerRadius="10">
+                            <Border Width="120" Height="25" Background="{TemplateBinding Background}" CornerRadius="10">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
             </StackPanel>
-        </Grid>
+        </StackPanel>
+    </Grid>
     </Grid>
 </Window>
