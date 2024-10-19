@@ -16,6 +16,14 @@ namespace ES_AIRAC_PCKGE
         private LoggerService _loggerService = new();
         private ConfigService _configService = new();
         private BackendService _backendService = new();
+        
+        public static string AppVersion = "1.0.0.0";
+        public static string LogPath = System.IO.Directory.GetCurrentDirectory()+ "\\debuging\\log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".txt";
+        public static string ConfigPath = System.IO.Directory.GetCurrentDirectory() + "\\config.json";
+        public static string? SctPath;
+        
+        private Brush bluecolor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#233244"));
+        private Brush whitecolor = Brushes.White;
 
         public ObservableCollection<FeatureItem> Features { get; set; }
 
@@ -27,12 +35,16 @@ namespace ES_AIRAC_PCKGE
         {
             InitializeComponent();
             
-            _configService.OnStart().Wait();
-            _loggerService.OnStart(_configService);
+            _loggerService.OnStart();
             _loggerService.LogMessage(SeverityLevelType.Info, "LoggerService started");
+
+        
+            _configService.OnStart();
             _loggerService.LogMessage(SeverityLevelType.Info, "Config setup completed");
-            
+            _configService = _configService.GetConfig();
+        
             _backendService.OnStart(_configService);
+            
             
             Features = new ObservableCollection<FeatureItem>();
             // TODO: Load features from backend
@@ -51,7 +63,6 @@ namespace ES_AIRAC_PCKGE
             MainContent = (ContentControl)this.FindName("MainContent");
             SctFolderPath = (TextBox)this.FindName("SctFolderPath");
         }
-
         private void CloseApplication(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
