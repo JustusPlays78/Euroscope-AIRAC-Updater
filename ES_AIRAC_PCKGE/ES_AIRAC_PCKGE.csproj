@@ -9,8 +9,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="TestWindow1.cs">
-        <DependentUpon>testwindow1.xaml</DependentUpon>
+      <Compile Update="HomeTabWindow.xaml.cs">
+        <DependentUpon>HomeTabWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="HomeGrid.xaml.cs">
+        <DependentUpon>HomeGrid.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="CredentialsGrid.xaml.cs">
+        <DependentUpon>CredentialsGrid.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="FeaturesGrid.xaml.cs">
+        <DependentUpon>FeaturesGrid.xaml</DependentUpon>
       </Compile>
     </ItemGroup>
 
