@@ -2,8 +2,9 @@
 
 public enum FeaturesType
 {
-    Credentials,
-    SymbologyFontsize,
-    TAGAssignedHeading,
-    TAGActualFlightLevelTo
+    AddToFile,
+    RemoveFromFile,
+    ChangeInFile,
+    AddFile,
+    RemoveFile
 }

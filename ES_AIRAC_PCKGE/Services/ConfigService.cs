@@ -11,8 +11,15 @@ public class ConfigService
     private readonly string AppVersion = "1.0.0";
     private string? VatsimUsername { get; set; }
     private string? VatsimPassword { get; set; }
-    private string[][][]? FeatureArray { get; set; }
+    
+    private List<string>? FeatureListName { get; set; }
+    private List<string>? FeatureListFileName { get; set; }
+    private List<string>? FeatureListOld { get; set; }
+    private List<string>? FeatureListNew { get; set; }
     private List<bool>? FeatureListBoolean { get; set; }
+    private List<FeaturesType>? FeatureListTypes { get; set; }
+    private string[][]? FeatureListSpecialFeatureArray { get; set; }
+    private List<bool>? FeatureListSpecialFeatureBoolean { get; set; }
 
     public async void OnStart()
     {
@@ -28,13 +35,19 @@ public class ConfigService
         {
             VatsimUsername = "",
             VatsimPassword = "",
-            FeatureArray = null,
+            FeatureListName = null,
+            FeatureListFileName = null,
+            FeatureListOld = null,
+            FeatureListNew = null,
             FeatureListBoolean = null,
+            FeatureListTypes = null,
+            FeatureListSpecialFeatureArray = null,
+            FeatureListSpecialFeatureBoolean = null
         };
         return config;
     }
     
-    private ConfigService GetConfig()
+    public ConfigService GetConfig()
     {
         if (!_jsonService.doesConfigJsonExist())
         {
@@ -50,7 +63,15 @@ public class ConfigService
     public string GetAppVersion() => AppVersion;
     public string GetVatsimUsername() => VatsimUsername;
     public string GetVatsimPassword() => VatsimPassword;
+    public List<string> GetFeatureListName() => FeatureListName;
+    public List<string> GetFeatureListFileName() => FeatureListFileName;
+    public List<string> GetFeatureListOld() => FeatureListOld;
+    public List<string> GetFeatureListNew() => FeatureListNew;
     public List<bool> GetFeatureListBoolean() => FeatureListBoolean;
-    public string[][][] GetFeatureArray() => FeatureArray;
-    
+    public List<FeaturesType> GetFeatureListTypes() => FeatureListTypes;
+    public string[][] GetFeatureListSpecialFeature() => FeatureListSpecialFeatureArray;
+    public List<bool> GetFeatureListSpecialFeatureBoolean() => FeatureListSpecialFeatureBoolean;
+
+    public void SetFeatureListBoolean() => VatsimUsername = "1.0.0";
+
 }

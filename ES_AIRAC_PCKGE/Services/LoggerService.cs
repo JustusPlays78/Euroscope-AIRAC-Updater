@@ -6,7 +6,7 @@ namespace ES_AIRAC_PCKGE.Services;
 public class LoggerService
 {
     
-    private static string LogPath {get; set;}
+    private static string LogPath = System.IO.Directory.GetCurrentDirectory()+ "\\debuging\\log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".txt";
     private string LogVersion {get; set;}
     
     public async void OnStart(ConfigService configService)
@@ -17,7 +17,6 @@ public class LoggerService
         {
             Directory.CreateDirectory(System.IO.Directory.GetCurrentDirectory() + "\\debuging");
         }
-        LogPath = System.IO.Directory.GetCurrentDirectory()+ "\\debuging\\log_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".txt";
         await CreateLogFile(LogPath, Logfile);
         LogMessage(SeverityLevelType.Info, "Logging Service Started");
     }
