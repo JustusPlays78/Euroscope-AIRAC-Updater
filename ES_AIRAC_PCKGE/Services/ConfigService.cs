@@ -18,8 +18,9 @@ public class ConfigService
     private List<string>? FeatureListNew { get; set; }
     private List<bool>? FeatureListBoolean { get; set; }
     private List<FeaturesType>? FeatureListTypes { get; set; }
-    private string[][]? FeatureListSpecialFeatureArray { get; set; }
+    private List<string> FeatureListSpecialFeatureList { get; set; }
     private List<bool>? FeatureListSpecialFeatureBoolean { get; set; }
+    private List<FeatureListSpecialType> FeatureListSpecialTypes { get; set; }
 
     public async void OnStart()
     {
@@ -41,8 +42,9 @@ public class ConfigService
             FeatureListNew = null,
             FeatureListBoolean = null,
             FeatureListTypes = null,
-            FeatureListSpecialFeatureArray = null,
-            FeatureListSpecialFeatureBoolean = null
+            FeatureListSpecialFeatureList = null,
+            FeatureListSpecialFeatureBoolean = null,
+            FeatureListSpecialTypes = null,
         };
         return config;
     }
@@ -69,8 +71,9 @@ public class ConfigService
     public List<string> GetFeatureListNew() => FeatureListNew;
     public List<bool> GetFeatureListBoolean() => FeatureListBoolean;
     public List<FeaturesType> GetFeatureListTypes() => FeatureListTypes;
-    public string[][] GetFeatureListSpecialFeature() => FeatureListSpecialFeatureArray;
+    public List<string> GetFeatureListSpecialFeatureList() => FeatureListSpecialFeatureList;
     public List<bool> GetFeatureListSpecialFeatureBoolean() => FeatureListSpecialFeatureBoolean;
+    public List<FeatureListSpecialType> GetFeatureListSpecialTypes() => FeatureListSpecialTypes;
 
     public void SetFeatureListBoolean() => VatsimUsername = "1.0.0";
 
