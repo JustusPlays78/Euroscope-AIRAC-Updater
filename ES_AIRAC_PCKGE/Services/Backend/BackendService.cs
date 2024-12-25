@@ -9,6 +9,8 @@ public class BackendService
     private BackendFileChangerService _backendFileChangerService = new();
     
 
+    private string configPath;
+
     public async void OnStart(ConfigService _configService)
     {
         _loggerService.LogMessage(SeverityLevelType.Info, "Backend Service Started");

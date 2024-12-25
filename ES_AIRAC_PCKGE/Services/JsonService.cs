@@ -10,34 +10,25 @@ public class JsonService
 
     private string ConfigPath = System.IO.Directory.GetCurrentDirectory() + "\\config.json";
     
-
     public ConfigService GetConfigJson()
     {
         ConfigService configs = JsonSerializer.Deserialize<ConfigService>(File.ReadAllText(ConfigPath));
         return configs;
     }
 
-    public void SaveConfigJson(ConfigService configs)
+    public async Task SaveConfigJson(ConfigService configs)
     {
-        File.WriteAllText(ConfigPath, JsonSerializer.Serialize(configs));
+        await File.WriteAllTextAsync(ConfigPath, JsonSerializer.Serialize(configs));
     }
 
     public bool doesConfigJsonExist()
     {
-        if (File.Exists(ConfigPath))
-        {
-            return true;
-        } else {
-            return false;
-        }
+        return File.Exists(ConfigPath);
     }
     
-
-    public Task CreateStandardConfigJson(ConfigService c)
+    public async Task CreateStandardConfigJson(ConfigService c)
     {
         _loggerService.LogMessage(SeverityLevelType.Info, "Creating new ConfigJson");
-        File.WriteAllText(ConfigPath, JsonSerializer.Serialize(c));
-        return Task.CompletedTask;
+        await File.WriteAllTextAsync(ConfigPath, JsonSerializer.Serialize(c));
     }
-    
 }
