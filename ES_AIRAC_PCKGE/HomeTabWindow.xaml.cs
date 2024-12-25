@@ -46,55 +46,55 @@ public partial class HomeTabWindow : Window
         EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
         _loggerService.LogMessage(SeverityLevelType.Info, "HomeTab open");
     }
-        private void CloseApplication(object sender, RoutedEventArgs e)
+    private void CloseApplication(object sender, RoutedEventArgs e)
+    {
+        Environment.Exit(0);
+    }
+    private void MinimizeApplication(object sender, RoutedEventArgs e)
+    {
+        this.WindowState = WindowState.Minimized;
+    }
+    private void MouseDragAndDrop(object sender, MouseButtonEventArgs e)
+    {
+        this.DragMove();
+    }
+    private void OnTabSwitch(object sender, RoutedEventArgs e)
+    {
+        if(sender.Equals(HomeTabButton))
         {
-            Environment.Exit(0);
+            EnableDisableTab(HomeTabGrid,HomeTabButton, true);
+            EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, false);
+            EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
+        } 
+        else if (sender.Equals(CredentialsTabButton))
+        {
+            EnableDisableTab(HomeTabGrid,HomeTabButton, false);
+            EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, true);
+            EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
         }
-        private void MinimizeApplication(object sender, RoutedEventArgs e)
+        else if (sender.Equals(FeaturesTabButton))
         {
-            this.WindowState = WindowState.Minimized;
+            EnableDisableTab(HomeTabGrid,HomeTabButton, false);
+            EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, false);
+            EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, true);
         }
-        private void MouseDragAndDrop(object sender, MouseButtonEventArgs e)
+    }
+    private void EnableDisableTab(Grid grid, Button button, bool enable)
+    {
+        if (enable)
         {
-            this.DragMove();
+            grid.Visibility = Visibility.Visible;
+            button.Background = whitecolor;
+            button.Foreground = bluecolor;
+            _loggerService.LogMessage(SeverityLevelType.Info, "Enabled " + grid.Name);
         }
-        private void OnTabSwitch(object sender, RoutedEventArgs e)
+        else
         {
-            if(sender.Equals(HomeTabButton))
-            {
-                EnableDisableTab(HomeTabGrid,HomeTabButton, true);
-                EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, false);
-                EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
-            } 
-            else if (sender.Equals(CredentialsTabButton))
-            {
-                EnableDisableTab(HomeTabGrid,HomeTabButton, false);
-                EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, true);
-                EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, false);
-            }
-            else if (sender.Equals(FeaturesTabButton))
-            {
-                EnableDisableTab(HomeTabGrid,HomeTabButton, false);
-                EnableDisableTab(CredentialsTabGrid, CredentialsTabButton, false);
-                EnableDisableTab(FeaturesTabGrid, FeaturesTabButton, true);
-            }
+            grid.Visibility = Visibility.Hidden;
+            button.Background = bluecolor;
+            button.Foreground = whitecolor;
+            _loggerService.LogMessage(SeverityLevelType.Info, "Disabled " + grid.Name);
         }
-        private void EnableDisableTab(Grid grid, Button button, bool enable)
-        {
-            if (enable)
-            {
-                grid.Visibility = Visibility.Visible;
-                button.Background = whitecolor;
-                button.Foreground = bluecolor;
-                _loggerService.LogMessage(SeverityLevelType.Info, "Enabled " + grid.Name);
-            }
-            else
-            {
-                grid.Visibility = Visibility.Hidden;
-                button.Background = bluecolor;
-                button.Foreground = whitecolor;
-                _loggerService.LogMessage(SeverityLevelType.Info, "Disabled " + grid.Name);
-            }
 
-        }
+    }
 }
